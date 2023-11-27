@@ -4,6 +4,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 // components
 import Navbar from '@/components/navbar/Navbar'
+import Footer from '@/components/footer/Footer';
 
 // MaterialUI
 import { Container } from '@mui/material';
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
         <Container maxWidth="lg">
           {children}
         </Container>
+        <Footer />
       </body>
     </html>
   )

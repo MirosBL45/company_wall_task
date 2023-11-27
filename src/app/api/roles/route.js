@@ -19,9 +19,6 @@ export const GET = async (request) => {
     }
 }
 
-
-
-
 export const POST = async (request) => {
     const body = await request.json();
 
@@ -34,6 +31,26 @@ export const POST = async (request) => {
         await newRole.save();
 
         return new NextResponse('Role has been created', { status: 201 });
+
+    } catch (error) {
+        return new NextResponse('Database Error', { status: 500 });
+    }
+}
+
+export const PUT = async (request) => {
+    const { _id } = request.query;
+    const body = await request.json();
+
+    try {
+        await connectToDB();
+
+        const updatedRole = await Role.findByIdAndUpdate(_id, body, { new: true });
+
+        if (!updatedRole) {
+            return new NextResponse('Role not found', { status: 404 });
+        }
+
+        return new NextResponse('Role has been updated', { status: 200 });
 
     } catch (error) {
         return new NextResponse('Database Error', { status: 500 });

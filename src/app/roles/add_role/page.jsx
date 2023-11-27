@@ -1,8 +1,69 @@
+'use client';
+
+// react/next stuff
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { Typography } from '@mui/material';
+
 // style
 import '../../globals.css';
 
 function AddRole() {
-  return <div>AddRole</div>;
+  // button sending text
+  const [buttonSend, setButtonSend] = useState(false);
+
+  const router = useRouter();
+
+  async function handleSubmit(e) {
+    setButtonSend(true);
+    e.preventDefault();
+    const role_name = e.target[0].value;
+    const description = e.target[1].value;
+
+    try {
+      await fetch('/api/roles', {
+        method: 'POST',
+        body: JSON.stringify({
+          role_name,
+          description,
+        }),
+      });
+      e.target.reset();
+      setButtonSend(false);
+      setTimeout(() => {
+        alert('You will be redirected');
+        router?.push('/roles');
+      }, 600);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  return (
+    <>
+      <Typography variant="h1" gutterBottom sx={{ textAlign: 'center' }}>
+        Create New Roles Here
+      </Typography>
+      <form className="rolesForm" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Role name"
+          pattern="[a-zA-Z0-9_]{2,16}"
+          required
+          title="Required alphanumeric value with min length of 2, max length of 16 characters (can contain underscore)"
+        />
+        <input
+          type="text"
+          placeholder="Short description"
+          pattern=".{2,50}"
+          title="String with min length of 2 and max length of 50 characters"
+        />
+
+        <button>{buttonSend ? 'Sending This Role...' : 'Send New Role'}</button>
+      </form>
+    </>
+  );
 }
 
 export default AddRole;

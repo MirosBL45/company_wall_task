@@ -80,7 +80,11 @@ async function Roles() {
                   <Typography>{role.role_name}</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography>{role.description}</Typography>
+                  <Typography>
+                    {role.description
+                      ? role.description
+                      : '***--- This role has no description ---***'}
+                  </Typography>
                 </TableCell>
               </TableRow>
             ))}
