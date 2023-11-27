@@ -5,6 +5,9 @@ const inter = Inter({ subsets: ['latin'] })
 // components
 import Navbar from '@/components/navbar/Navbar'
 
+// MaterialUI
+import { Container } from '@mui/material';
+
 export const metadata = {
   title: 'Miroslav Jovic Task',
   description: 'Miroslav Jovic Task for CompanyWall',
@@ -38,7 +41,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        {children}
+        <Container maxWidth="lg">
+          {children}
+        </Container>
       </body>
     </html>
   )
