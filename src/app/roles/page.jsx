@@ -1,6 +1,3 @@
-// react/next stuff
-import Link from 'next/link';
-
 // MaterialUI
 import {
   Table,
@@ -11,8 +8,10 @@ import {
   TableRow,
   Paper,
   Typography,
-  Button,
 } from '@mui/material';
+
+// components
+import LinkButton from '@/components/linkButton/LinkButton';
 
 // style
 import '../globals.css';
@@ -88,11 +87,7 @@ async function Roles() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Link href="/roles/add_role">
-        <Button variant="contained" color="primary" sx={{ marginTop: '16px' }}>
-          Add Role here
-        </Button>
-      </Link>
+      <LinkButton href="/roles/add_role" buttonText="Add Role here" />
     </>
   );
 }

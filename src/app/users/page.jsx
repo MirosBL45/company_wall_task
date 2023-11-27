@@ -1,15 +1,29 @@
-// react/next stuff
-import Link from 'next/link';
+// MaterialUI
+import {
+  // Table,
+  // TableBody,
+  // TableCell,
+  // TableContainer,
+  // TableHead,
+  // TableRow,
+  // Paper,
+  Typography,
+} from '@mui/material';
+
+// components
+import LinkButton from '@/components/linkButton/LinkButton';
 
 // style
 import '../globals.css';
 
 function Users() {
   return (
-    <div>
-      <p>Users</p>
-      <Link href="/users/add_user">Add User here</Link>
-    </div>
+    <>
+      <Typography variant="h1" gutterBottom>
+        Users
+      </Typography>
+      <LinkButton href="/users/add_user" buttonText="Add User here" />
+    </>
   );
 }
 
