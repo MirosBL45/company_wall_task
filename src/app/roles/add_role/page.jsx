@@ -30,11 +30,11 @@ function AddRole() {
         }),
       });
       e.target.reset();
-      setButtonSend(false);
       setTimeout(() => {
         alert('You will be redirected');
+        setButtonSend(false);
         router?.push('/roles');
-      }, 600);
+      }, 2000);
     } catch (error) {
       console.log(error);
     }
