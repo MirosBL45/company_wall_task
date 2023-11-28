@@ -43,7 +43,7 @@ function AddRole() {
   return (
     <>
       <Typography variant="h1" gutterBottom sx={{ textAlign: 'center' }}>
-        Create New Roles Here
+        Create New Role Here
       </Typography>
       <form className="rolesForm" onSubmit={handleSubmit}>
         <input

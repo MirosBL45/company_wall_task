@@ -42,3 +42,26 @@ a {
   box-shadow: 0 0 0 3px hsl(176, 51%, 56%);
   border-color: hsl(176, 51%, 56%);
 }
+
+.selectField {
+  font-family: 'Arial', sans-serif;
+}
+
+.selectField label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.selectField select {
+  width: 270px;
+  padding: 20px;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: rgb(245, 245, 245);
+  color: #181818;
+}
+
+.selectField select::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
