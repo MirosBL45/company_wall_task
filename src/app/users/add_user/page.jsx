@@ -61,7 +61,7 @@ function AddUser() {
       });
       e.target.reset();
       setTimeout(() => {
-        alert('You will be redirected');
+        alert('You will be redirected to users page!');
         setButtonSend(false);
         router?.push('/users');
       }, 2000);
@@ -106,6 +106,7 @@ function AddUser() {
             id="roleDropdown"
             value={selectedRole}
             onChange={handleRoleChange}
+            required
           >
             <option value="">Select...</option>
             {roleNameArray.map((role, index) => (

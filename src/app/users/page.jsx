@@ -1,7 +1,7 @@
 'use client';
 
 // react/next stuff
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 // MaterialUI
 import {
@@ -113,7 +113,7 @@ function Users() {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[2, 10, 25, 50, 100]}
+          rowsPerPageOptions={[2, 5, 10, 25, 50, 100]}
           component="div"
           count={data.length}
           rowsPerPage={rowsPerPage}

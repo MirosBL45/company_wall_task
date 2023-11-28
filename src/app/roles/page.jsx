@@ -1,3 +1,6 @@
+// react/next stuff
+import Link from 'next/link';
+
 // MaterialUI
 import {
   Table,
@@ -31,6 +34,11 @@ async function getData() {
 
 async function Roles() {
   const data = await getData();
+
+  // if there is no data immediately, show a message
+  if (!data || data.length === 0) {
+    return <div>Loading data from server, there is time...</div>;
+  }
 
   // A function that removes duplicates and sorts alphabetically
   function uniqueAndSortedData() {
@@ -77,7 +85,9 @@ async function Roles() {
             {uniqueAndSortedData().map((role) => (
               <TableRow key={role._id}>
                 <TableCell>
-                  <Typography>{role.role_name}</Typography>
+                  <Link href={`/roles/${role._id}`}>
+                    <Typography>{role.role_name}</Typography>
+                  </Link>
                 </TableCell>
                 <TableCell>
                   <Typography>

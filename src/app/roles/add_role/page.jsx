@@ -31,7 +31,7 @@ function AddRole() {
       });
       e.target.reset();
       setTimeout(() => {
-        alert('You will be redirected');
+        alert('You will be redirected to roles page!');
         setButtonSend(false);
         router?.push('/roles');
       }, 2000);
