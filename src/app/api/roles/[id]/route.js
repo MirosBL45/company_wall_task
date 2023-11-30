@@ -19,21 +19,15 @@ export const GET = async (request, { params }) => {
     }
 };
 
-export const PUT = async (request) => {
-    const { _id } = request.query;
+
+export const PUT = async (request, { params }) => {
+    const { id } = params;
     const body = await request.json();
 
     try {
         await connectToDB();
-
-        const updatedRole = await Role.findByIdAndUpdate(_id, body, { new: true });
-
-        if (!updatedRole) {
-            return new NextResponse('Role not found', { status: 404 });
-        }
-
-        return new NextResponse('Role has been updated', { status: 200 });
-
+        await Role.findByIdAndUpdate(id, body);
+        return NextResponse.json({ message: "Role updated" }, { status: 200 });
     } catch (error) {
         return new NextResponse('Database Error', { status: 500 });
     }

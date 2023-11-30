@@ -60,6 +60,7 @@ function AddUser() {
         }),
       });
       e.target.reset();
+      router?.refresh();
       setTimeout(() => {
         alert('You will be redirected to users page!');
         setButtonSend(false);

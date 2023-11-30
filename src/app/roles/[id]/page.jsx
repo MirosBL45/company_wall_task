@@ -1,11 +1,14 @@
-// 'use client';
+// react/next stuff
+import { notFound } from 'next/navigation';
 
 // style
 import '../../globals.css';
 
-// react/next stuff
-// import { useState } from 'react';
-import { notFound } from 'next/navigation';
+// MaterialUI
+import { Typography } from '@mui/material';
+
+// components
+import RoleForm from '@/components/forms/RoleForm';
 
 async function getData(id) {
   const res = await fetch(`http://localhost:3000/api/roles/${id}`, {
@@ -20,27 +23,7 @@ async function getData(id) {
 }
 
 async function OneRole({ params }) {
-  // function OneRole({ params }) {
   const data = await getData(params.id);
-
-  // state for data of users
-  // const [data, setData] = useState([]);
-  // fatch that data and store it
-  // async function fetchData() {
-  //   try {
-  //     const response = await fetch('http://localhost:3000/api/roles/${id}');
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
-
-  //     const data = await response.json();
-  //     setData(data);
-  //   } catch (error) {
-  //     console.error('Error fetching data:', error);
-  //   }
-  // }
-
-  // fetchData();
 
   // if no data show message
   if (!data || data.length === 0) {
@@ -49,7 +32,14 @@ async function OneRole({ params }) {
   return (
     <div>
       <p>{data.role_name}</p>
+      <br />
       <p>{data.description}</p>
+      <br />
+      <br />
+      <p>dole ide forma</p>
+      <br />
+      <br />
+      <RoleForm initialData={data} />
     </div>
   );
 }
