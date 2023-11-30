@@ -8,7 +8,6 @@ import { useState } from 'react';
 import '../../app/globals.css';
 
 // MaterialUI
-import { Typography } from '@mui/material';
 import Box from '@mui/system/Box';
 
 function RoleForm({ initialData }) {

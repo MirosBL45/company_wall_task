@@ -37,7 +37,7 @@ async function Roles() {
 
   // if there is no data immediately, show a message
   if (!data || data.length === 0) {
-    return <div>Loading data from server, there is time...</div>;
+    return <div>Loading roles from server, coming soon...</div>;
   }
 
   // A function that removes duplicates and sorts alphabetically
@@ -90,11 +90,13 @@ async function Roles() {
                   </Link>
                 </TableCell>
                 <TableCell>
-                  <Typography>
-                    {role.description
-                      ? role.description
-                      : '***--- This role has no description ---***'}
-                  </Typography>
+                  <Link href={`/roles/${role._id}`}>
+                    <Typography>
+                      {role.description
+                        ? role.description
+                        : '***--- This role has no description ---***'}
+                    </Typography>
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}

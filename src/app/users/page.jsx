@@ -2,6 +2,7 @@
 
 // react/next stuff
 import { useState } from 'react';
+import Link from 'next/link';
 
 // MaterialUI
 import {
@@ -51,7 +52,7 @@ function Users() {
   if (!data || data.length === 0) {
     return (
       <Typography variant="h2" sx={{ marginTop: '50px' }} gutterBottom>
-        Loading data from server, there is time...
+        Loading users from server, coming soon...
       </Typography>
     );
   }
@@ -107,9 +108,21 @@ function Users() {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((user) => (
                   <TableRow key={user._id}>
-                    <TableCell>{user.first_name}</TableCell>
-                    <TableCell>{user.last_name}</TableCell>
-                    <TableCell>{user.role_name}</TableCell>
+                    <TableCell>
+                      <Link href={`/users/${user._id}`}>
+                        <Typography>{user.first_name}</Typography>
+                      </Link>
+                    </TableCell>
+                    <TableCell>
+                      <Link href={`/users/${user._id}`}>
+                        <Typography>{user.last_name}</Typography>
+                      </Link>
+                    </TableCell>
+                    <TableCell>
+                      <Link href={`/users/${user._id}`}>
+                        <Typography>{user.role_name}</Typography>
+                      </Link>
+                    </TableCell>
                     <TableCell>{formatDateTime(user.createdAt)}</TableCell>
                   </TableRow>
                 ))}

@@ -12,7 +12,8 @@ import '../../globals.css';
 function AddUser() {
   // state for data of users
   const [data, setData] = useState([]);
-  // const [roleName, setRoleName] = useState([]);
+
+  // array for all roles
   let roleNameArray = [];
 
   // fatch data to get all role_names
