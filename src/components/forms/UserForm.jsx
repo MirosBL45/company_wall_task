@@ -118,7 +118,7 @@ function UserForm({ initialData }) {
           ))}
         </select>
       </div>
-      <button type="submit">
+      <button type="submit" disabled={buttonSend}>
         {buttonSend ? 'Updating This User...' : 'Update User'}
       </button>
     </form>

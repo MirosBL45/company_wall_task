@@ -65,7 +65,9 @@ function AddRole() {
           title="String with min length of 2 and max length of 50 characters"
         />
 
-        <button>{buttonSend ? 'Sending This Role...' : 'Send New Role'}</button>
+        <button disabled={buttonSend}>
+          {buttonSend ? 'Sending This Role...' : 'Send New Role'}
+        </button>
       </form>
     </>
   );

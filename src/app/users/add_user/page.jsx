@@ -102,7 +102,9 @@ function AddUser() {
             ))}
           </select>
         </div>
-        <button>{buttonSend ? 'Sending This User...' : 'Send New User'}</button>
+        <button disabled={buttonSend}>
+          {buttonSend ? 'Sending This User...' : 'Send New User'}
+        </button>
       </form>
     </>
   );

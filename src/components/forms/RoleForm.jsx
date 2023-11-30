@@ -74,7 +74,7 @@ function RoleForm({ initialData }) {
           onChange={(e) => setDescription(e.target.value)}
         />
       </Box>
-      <button type="submit">
+      <button type="submit" disabled={buttonSend}>
         {buttonSend ? 'Updating This Role...' : 'Update Role'}
       </button>
     </form>
