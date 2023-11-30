@@ -54,7 +54,7 @@ function AddRole() {
           required
           title="Required alphanumeric value with min length of 2, max length of 16 characters (can contain underscore)"
         />
-        <input
+        <textarea
           type="text"
           placeholder="Short description"
           pattern=".{2,50}"

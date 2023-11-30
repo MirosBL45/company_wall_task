@@ -4,12 +4,25 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+// style
+import '../../app/globals.css';
+
+// MaterialUI
+import { Typography } from '@mui/material';
+import Box from '@mui/system/Box';
+
 function RoleForm({ initialData }) {
+  // button sending text
+  const [buttonSend, setButtonSend] = useState(false);
+
   const router = useRouter();
+
+  // old role data
   const [roleName, setRoleName] = useState(initialData.role_name);
   const [description, setDescription] = useState(initialData.description);
 
   async function handleUpdate(e) {
+    setButtonSend(true);
     e.preventDefault();
 
     try {
@@ -24,32 +37,47 @@ function RoleForm({ initialData }) {
         },
       });
       router.refresh();
+      setTimeout(() => {
+        alert('You will be redirected to roles page!');
+        setButtonSend(false);
+        router?.push('/roles');
+      }, 2000);
     } catch (err) {
       console.log(err);
     }
   }
 
   return (
-    <form onSubmit={handleUpdate}>
-      <label>
-        Role Name:
+    <form className="rolesForm updateForm" onSubmit={handleUpdate}>
+      <Box
+        component="div"
+        sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+      >
+        <label>Role Name:</label>
         <input
           type="text"
+          pattern="[a-zA-Z0-9_]{2,16}"
+          required
+          title="Required alphanumeric value with min length of 2, max length of 16 characters (can contain underscore)"
           value={roleName}
           onChange={(e) => setRoleName(e.target.value)}
         />
-      </label>
-      <br />
-      <br />
-      <label>
-        Description:
+      </Box>
+      <Box
+        component="div"
+        sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+      >
+        <label>Description:</label>
         <textarea
+          pattern=".{2,50}"
+          title="String with min length of 2 and max length of 50 characters"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-      </label>
-      <br />
-      <button type="submit">Update</button>
+      </Box>
+      <button type="submit">
+        {buttonSend ? 'Updating This Role...' : 'Update Role'}
+      </button>
     </form>
   );
 }

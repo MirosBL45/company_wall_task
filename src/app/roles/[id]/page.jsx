@@ -6,6 +6,7 @@ import '../../globals.css';
 
 // MaterialUI
 import { Typography } from '@mui/material';
+import Box from '@mui/system/Box';
 
 // components
 import RoleForm from '@/components/forms/RoleForm';
@@ -30,17 +31,21 @@ async function OneRole({ params }) {
     return <div>Loading data from server, there is time...</div>;
   }
   return (
-    <div>
-      <p>{data.role_name}</p>
-      <br />
-      <p>{data.description}</p>
-      <br />
-      <br />
-      <p>dole ide forma</p>
-      <br />
-      <br />
+    <Box component="section" sx={{ p: 2 }}>
+      <Typography variant="h1" gutterBottom>
+        Update Role
+      </Typography>
+      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
+        Current Role name: {data.role_name}
+      </Typography>
+      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
+        Current Role description: {data.description}
+      </Typography>
+      <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
+        Update Role in the form below
+      </Typography>
       <RoleForm initialData={data} />
-    </div>
+    </Box>
   );
 }
 
