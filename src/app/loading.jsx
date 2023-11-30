@@ -1,3 +1,10 @@
+// MaterialUI
+import { Typography } from '@mui/material';
+
 export default function Loading() {
-  return <p>Loading Home Page...</p>;
+  return (
+    <Typography variant="h2" sx={{ marginTop: '50px' }} gutterBottom>
+      Loading Home Page...
+    </Typography>
+  );
 }

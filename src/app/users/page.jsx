@@ -49,7 +49,11 @@ function Users() {
 
   // if no data show message
   if (!data || data.length === 0) {
-    return <div>Loading data from server, there is time...</div>;
+    return (
+      <Typography variant="h2" sx={{ marginTop: '50px' }} gutterBottom>
+        Loading data from server, there is time...
+      </Typography>
+    );
   }
 
   // sorting data by date
