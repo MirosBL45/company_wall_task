@@ -16,13 +16,14 @@ import {
 // components
 import LinkButton from '@/components/linkButton/LinkButton';
 import { uniqueAndSortedData } from '@/utils/functions';
+import { BASE_API_URL } from '@/utils/constants';
 
 // style
 import '@/app/globals.css';
 
 // function for catching data
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/roles`, {
+  const res = await fetch(`${BASE_API_URL}/api/roles`, {
     cache: 'no-store',
   });
 
@@ -34,6 +35,11 @@ async function getData() {
 }
 
 async function Roles() {
+  // check for url
+  if (!BASE_API_URL) {
+    return <p>conection failed</p>;
+  }
+
   const data = await getData();
 
   // if there is no data immediately, show a message

@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { BASE_API_URL } from './constants';
 
 function useRoleNames() {
     // array for all roles
@@ -8,17 +9,19 @@ function useRoleNames() {
     useEffect(() => {
         // fatch data to get all role_names
         async function fetchData() {
-            try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/roles`);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+            if (BASE_API_URL) {
+                try {
+                    const response = await fetch(`${BASE_API_URL}/api/roles`);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
 
-                const data = await response.json();
-                const roleNames = data.map(oneData => oneData.role_name);
-                setRoleNameArray(roleNames);
-            } catch (error) {
-                console.error('Error fetching data:', error);
+                    const data = await response.json();
+                    const roleNames = data.map(oneData => oneData.role_name);
+                    setRoleNameArray(roleNames);
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
             }
         };
 

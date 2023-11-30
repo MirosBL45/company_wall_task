@@ -10,14 +10,12 @@ import Box from '@mui/system/Box';
 
 // components
 import RoleForm from '@/components/forms/RoleForm';
+import { BASE_API_URL } from '@/utils/constants';
 
 async function getData(id) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/roles/${id}`,
-    {
-      cache: 'no-store',
-    }
-  );
+  const res = await fetch(`${BASE_API_URL}/api/roles/${id}`, {
+    cache: 'no-store',
+  });
 
   if (!res.ok) {
     return notFound();
@@ -27,6 +25,11 @@ async function getData(id) {
 }
 
 async function OneRole({ params }) {
+  // check for url
+  if (!BASE_API_URL) {
+    return <p>conection failed</p>;
+  }
+
   const data = await getData(params.id);
 
   // if no data show message

@@ -1,0 +1,1 @@
+export const BASE_API_URL = process.env.NEXT_PUBLIC_NAME_OF_LINK

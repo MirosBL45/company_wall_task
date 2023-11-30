@@ -19,11 +19,17 @@ import {
 
 // components
 import LinkButton from '@/components/linkButton/LinkButton';
+import { BASE_API_URL } from '@/utils/constants';
 
 // style
 import '@/app/globals.css';
 
 function Users() {
+  // check for url
+  if (!BASE_API_URL) {
+    return <p>conection failed</p>;
+  }
+
   // state for pagination
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -34,9 +40,7 @@ function Users() {
   // fatch that data and store it
   async function fetchData() {
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/users`
-      );
+      const response = await fetch(`${BASE_API_URL}/api/users`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
