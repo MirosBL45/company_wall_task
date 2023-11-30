@@ -21,7 +21,7 @@ import {
 import LinkButton from '@/components/linkButton/LinkButton';
 
 // style
-import '../globals.css';
+import '@/app/globals.css';
 
 function Users() {
   // state for pagination
@@ -92,15 +92,34 @@ function Users() {
       <Typography variant="h1" gutterBottom>
         Users
       </Typography>
+      <Typography sx={{ marginBottom: '36px' }} variant="h3" gutterBottom>
+        Click on each User Name to edit
+      </Typography>
       <div>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>First Name</TableCell>
-                <TableCell>Last Name</TableCell>
-                <TableCell>Role Name</TableCell>
-                <TableCell>Created At</TableCell>
+                <TableCell>
+                  <Typography variant="h5" fontWeight="bold">
+                    First Name
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="h5" fontWeight="bold">
+                    Last Name
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="h5" fontWeight="bold">
+                    Role Name
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="h5" fontWeight="bold">
+                    Created At
+                  </Typography>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

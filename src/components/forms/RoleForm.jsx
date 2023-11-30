@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 // style
-import '../../app/globals.css';
+import '@/app/globals.css';
 
 // MaterialUI
 import Box from '@mui/system/Box';

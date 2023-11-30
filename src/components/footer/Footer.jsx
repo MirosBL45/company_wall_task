@@ -8,7 +8,7 @@ function Footer() {
       component="footer"
       sx={{
         backgroundColor: '#f0f0f0',
-        padding: '10px',
+        padding: '20px',
         textAlign: 'center',
         position: 'fixed',
         width: '100%',
@@ -21,7 +21,7 @@ function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Jovic Mirosav
+        Jović Miroslav
       </a>
       . Repo of this project is{' '}
       <a

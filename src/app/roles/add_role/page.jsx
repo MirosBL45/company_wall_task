@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { Typography } from '@mui/material';
 
 // style
-import '../../globals.css';
+import '@/app/globals.css';
 
 function AddRole() {
   // button sending text

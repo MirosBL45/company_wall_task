@@ -35,19 +35,22 @@ async function OneUser({ params }) {
       <Typography variant="h1" gutterBottom>
         Update User
       </Typography>
-      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
-        Current name of User: {data.first_name}
-      </Typography>
-      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
-        Current last name of User: {data.last_name}
-      </Typography>
-      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
-        Current email of User: {data.email}
-      </Typography>
-      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
-        Current Role name of User: {data.role_name}
+      <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
+        Current name of User:{' '}
+        <span className="colorSpan">{data.first_name}</span>
       </Typography>
       <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
+        Current last name of User:{' '}
+        <span className="colorSpan">{data.last_name}</span>
+      </Typography>
+      <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
+        Current email of User: <span className="colorSpan">{data.email}</span>
+      </Typography>
+      <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
+        Current Role name of User:{' '}
+        <span className="colorSpan">{data.role_name}</span>
+      </Typography>
+      <Typography sx={{ marginBottom: '20px' }} variant="h6" gutterBottom>
         Update Role in the form below
       </Typography>
       <UserForm initialData={data} />

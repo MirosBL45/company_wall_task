@@ -2,7 +2,7 @@
 import { notFound } from 'next/navigation';
 
 // style
-import '../../globals.css';
+import '@/app/globals.css';
 
 // MaterialUI
 import { Typography } from '@mui/material';
@@ -35,13 +35,14 @@ async function OneRole({ params }) {
       <Typography variant="h1" gutterBottom>
         Update Role
       </Typography>
-      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
-        Current Role name: {data.role_name}
-      </Typography>
-      <Typography sx={{ marginBottom: '20px' }} variant="body1" gutterBottom>
-        Current Role description: {data.description}
+      <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
+        Current Role name: <span className="colorSpan">{data.role_name}</span>
       </Typography>
       <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
+        Current Role description:{' '}
+        <span className="colorSpan">{data.description}</span>
+      </Typography>
+      <Typography sx={{ marginBottom: '20px' }} variant="h6" gutterBottom>
         Update Role in the form below
       </Typography>
       <RoleForm initialData={data} />

@@ -4,8 +4,11 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+// role names
+import useRoleNames from '@/utils/apiUtilsRoles';
+
 // style
-import '../../app/globals.css';
+import '@/app/globals.css';
 
 // MaterialUI
 import Box from '@mui/system/Box';
@@ -14,32 +17,8 @@ function UserForm({ initialData }) {
   // button sending text
   const [buttonSend, setButtonSend] = useState(false);
 
-  // state for data of users
-  const [data, setData] = useState([]);
-
-  // array for all roles
-  let roleNameArray = [];
-
-  // fatch data to get all role_names
-  async function fetchData() {
-    try {
-      const response = await fetch('http://localhost:3000/api/roles');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
-
-  fetchData();
-
-  data.forEach((oneData) => {
-    roleNameArray.push(oneData.role_name);
-  });
+  // role names
+  const roleNameArray = useRoleNames();
 
   // old user data
   const [userFirstName, setUserFirstName] = useState(initialData.first_name);
@@ -64,7 +43,7 @@ function UserForm({ initialData }) {
           first_name: userFirstName,
           last_name: userLastName,
           email: userEmail,
-          role_name: userRole,
+          role_name: selectedRole,
         }),
         headers: {
           'Content-Type': 'application/json',

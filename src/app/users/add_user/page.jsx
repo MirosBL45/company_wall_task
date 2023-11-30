@@ -4,41 +4,21 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+// role names
+import useRoleNames from '@/utils/apiUtilsRoles';
+
+// MaterialUI
 import { Typography } from '@mui/material';
 
 // style
-import '../../globals.css';
+import '@/app/globals.css';
 
 function AddUser() {
-  // state for data of users
-  const [data, setData] = useState([]);
-
-  // array for all roles
-  let roleNameArray = [];
-
-  // fatch data to get all role_names
-  async function fetchData() {
-    try {
-      const response = await fetch('http://localhost:3000/api/roles');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
-
-  fetchData();
-
-  data.forEach((oneData) => {
-    roleNameArray.push(oneData.role_name);
-  });
-
   // button sending text
   const [buttonSend, setButtonSend] = useState(false);
+
+  // role names
+  const roleNameArray = useRoleNames();
 
   const router = useRouter();
 

@@ -17,7 +17,7 @@ import {
 import LinkButton from '@/components/linkButton/LinkButton';
 
 // style
-import '../globals.css';
+import '@/app/globals.css';
 
 // function for catching data
 async function getData() {
@@ -62,6 +62,9 @@ async function Roles() {
       <Typography variant="h1" gutterBottom>
         Roles
       </Typography>
+      <Typography sx={{ marginBottom: '36px' }} variant="h3" gutterBottom>
+        Click on each Role Name to edit
+      </Typography>
       <TableContainer
         component={Paper}
         sx={{ marginBottom: '36px', padding: '16px' }}
@@ -70,12 +73,12 @@ async function Roles() {
           <TableHead>
             <TableRow>
               <TableCell>
-                <Typography variant="h4" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold">
                   Role Name
                 </Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="h4" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold">
                   Description
                 </Typography>
               </TableCell>
