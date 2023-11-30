@@ -24,10 +24,9 @@ function UserForm({ initialData }) {
   const [userFirstName, setUserFirstName] = useState(initialData.first_name);
   const [userLastName, setUserLastName] = useState(initialData.last_name);
   const [userEmail, setUserEmail] = useState(initialData.email);
-  const [userRole, setUserRole] = useState(initialData.role_name);
 
   // for select role
-  const [selectedRole, setSelectedRole] = useState(userRole);
+  const [selectedRole, setSelectedRole] = useState(initialData.role_name);
   const handleRoleChange = (event) => setSelectedRole(event.target.value);
 
   const router = useRouter();

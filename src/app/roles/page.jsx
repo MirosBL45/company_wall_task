@@ -15,14 +15,14 @@ import {
 
 // components
 import LinkButton from '@/components/linkButton/LinkButton';
+import { uniqueAndSortedData } from '@/utils/functions';
 
 // style
 import '@/app/globals.css';
 
 // function for catching data
 async function getData() {
-  const res = await fetch('/api/roles', {
-    // const res = await fetch('http://localhost:3000/api/roles', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/roles`, {
     cache: 'no-store',
   });
 
@@ -39,23 +39,6 @@ async function Roles() {
   // if there is no data immediately, show a message
   if (!data || data.length === 0) {
     return <div>Loading roles from server, coming soon...</div>;
-  }
-
-  // A function that removes duplicates and sorts alphabetically
-  function uniqueAndSortedData() {
-    // Duplicate removal
-    const uniqueData = Array.from(
-      new Set(data.map((role) => role.role_name))
-    ).map((roleName) => {
-      return data.find((role) => role.role_name === roleName);
-    });
-
-    // Alphabetical sorting
-    const sortedData = uniqueData
-      .slice()
-      .sort((a, b) => a.role_name.localeCompare(b.role_name));
-
-    return sortedData;
   }
 
   return (
@@ -86,7 +69,7 @@ async function Roles() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {uniqueAndSortedData().map((role) => (
+            {uniqueAndSortedData(data).map((role) => (
               <TableRow key={role._id}>
                 <TableCell>
                   <Link href={`/roles/${role._id}`}>

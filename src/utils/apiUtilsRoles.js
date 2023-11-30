@@ -9,8 +9,7 @@ function useRoleNames() {
         // fatch data to get all role_names
         async function fetchData() {
             try {
-                // const response = await fetch('http://localhost:3000/api/roles');
-                const response = await fetch('/api/roles');
+                const response = await fetch(`${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/roles`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

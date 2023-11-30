@@ -12,10 +12,12 @@ import Box from '@mui/system/Box';
 import RoleForm from '@/components/forms/RoleForm';
 
 async function getData(id) {
-  const res = await fetch(`/api/roles/${id}`, {
-    // const res = await fetch(`http://localhost:3000/api/roles/${id}`, {
-    cache: 'no-store',
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/roles/${id}`,
+    {
+      cache: 'no-store',
+    }
+  );
 
   if (!res.ok) {
     return notFound();

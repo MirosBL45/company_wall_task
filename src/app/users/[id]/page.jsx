@@ -12,10 +12,12 @@ import Box from '@mui/system/Box';
 import UserForm from '@/components/forms/UserForm';
 
 async function getData(id) {
-  const res = await fetch(`/api/users/${id}`, {
-    // const res = await fetch(`http://localhost:3000/api/users/${id}`, {
-    cache: 'no-store',
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_NAME_OF_LINK}/api/users/${id}`,
+    {
+      cache: 'no-store',
+    }
+  );
 
   if (!res.ok) {
     return notFound();
