@@ -49,10 +49,10 @@ async function Roles() {
 
   return (
     <>
-      <Typography variant="h1" gutterBottom>
+      <Typography sx={{ marginTop: '40px' }} variant="h2" gutterBottom>
         Roles
       </Typography>
-      <Typography sx={{ marginBottom: '36px' }} variant="h3" gutterBottom>
+      <Typography sx={{ marginBottom: '36px' }} variant="h4" gutterBottom>
         Click on each Role Name to edit
       </Typography>
       <TableContainer

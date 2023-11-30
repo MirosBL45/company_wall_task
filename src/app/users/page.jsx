@@ -95,10 +95,10 @@ function Users() {
 
   return (
     <>
-      <Typography variant="h1" gutterBottom>
+      <Typography variant="h2" sx={{ marginTop: '40px' }} gutterBottom>
         Users
       </Typography>
-      <Typography sx={{ marginBottom: '36px' }} variant="h3" gutterBottom>
+      <Typography sx={{ marginBottom: '36px' }} variant="h4" gutterBottom>
         Click on each User Name to edit
       </Typography>
       <div>

@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 
 export default function Loading() {
   return (
-    <Typography variant="h2" sx={{ marginTop: '50px' }} gutterBottom>
+    <Typography variant="h3" sx={{ marginTop: '50px' }} gutterBottom>
       Loading form for users..
     </Typography>
   );

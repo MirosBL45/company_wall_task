@@ -37,8 +37,8 @@ async function OneRole({ params }) {
     return <div>Loading Role from server, coming soon...</div>;
   }
   return (
-    <Box component="section" sx={{ p: 2 }}>
-      <Typography variant="h1" gutterBottom>
+    <Box component="section" sx={{ p: 2, marginTop: '40px' }}>
+      <Typography variant="h3" sx={{ marginBottom: '30px' }}>
         Update Role
       </Typography>
       <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>

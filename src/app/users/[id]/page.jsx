@@ -38,7 +38,7 @@ async function OneUser({ params }) {
   }
   return (
     <Box component="section" sx={{ p: 2 }}>
-      <Typography variant="h1" gutterBottom>
+      <Typography variant="h3" sx={{ marginTop: '40px', marginBottom: '30px' }}>
         Update User
       </Typography>
       <Typography sx={{ marginBottom: '20px' }} variant="h5" gutterBottom>
