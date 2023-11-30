@@ -12,7 +12,8 @@ import Box from '@mui/system/Box';
 import UserForm from '@/components/forms/UserForm';
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/users/${id}`, {
+  const res = await fetch(`/api/users/${id}`, {
+    // const res = await fetch(`http://localhost:3000/api/users/${id}`, {
     cache: 'no-store',
   });
 

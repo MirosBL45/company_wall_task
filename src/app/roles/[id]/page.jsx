@@ -12,7 +12,8 @@ import Box from '@mui/system/Box';
 import RoleForm from '@/components/forms/RoleForm';
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/roles/${id}`, {
+  const res = await fetch(`/api/roles/${id}`, {
+    // const res = await fetch(`http://localhost:3000/api/roles/${id}`, {
     cache: 'no-store',
   });
 

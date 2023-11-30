@@ -34,7 +34,8 @@ function Users() {
   // fatch that data and store it
   async function fetchData() {
     try {
-      const response = await fetch('http://localhost:3000/api/users');
+      const response = await fetch('/api/users');
+      // const response = await fetch('http://localhost:3000/api/users');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
